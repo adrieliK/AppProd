@@ -1,4 +1,4 @@
-package com.example.aluno.myapplication2;
+package com.example.aluno.Prod;
 
 import org.junit.Test;
 

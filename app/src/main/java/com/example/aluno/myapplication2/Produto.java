@@ -1,6 +1,7 @@
 package com.example.aluno.myapplication2;
+import com.orm.SugarRecord;
 
-public class Produto {
+public class Produto extends SugarRecord{
 
     private String nome;
     private Double quantidade;
@@ -44,4 +45,8 @@ public class Produto {
         this.preco = preco;
 
     }
+
+    public static final String[] dados = new String[] { "Cupcake", "Donut", "Eclair", "Froyo", "Gingerbread",
+            "Honeycomb", "Ice Cream Sandwich", "Jelly Bean",
+            "KitKat", "Lollipop", "Marshmallow", "Nougat" };
 }

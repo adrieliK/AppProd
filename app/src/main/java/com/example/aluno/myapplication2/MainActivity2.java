@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.orm.SchemaGenerator;
+import com.orm.SugarContext;
+import com.orm.SugarDb;
 
 public class MainActivity2 extends AppCompatActivity {
     private EditText editNome;
@@ -18,9 +23,13 @@ public class MainActivity2 extends AppCompatActivity {
     private EditText editPreco;
     private Button btnCadastrar;
     private ImageButton btnFoto;
-    private TextView mensagem;
-    private Button listar;
+    private Button buttonListar;
     private final int tirarFoto = 3;
+    private TextView textNome;
+    private TextView textQuantidade;
+    private TextView textData;
+    private TextView textPreco;
+
 
 
     @Override
@@ -33,80 +42,32 @@ public class MainActivity2 extends AppCompatActivity {
         editQuantidade = (EditText) findViewById(R.id.editQuantidade);
         editDTVal = (EditText) findViewById(R.id.editDTVal);
         editPreco = (EditText) findViewById(R.id.editPreco);
-        btnCadastrar= (Button) findViewById(R.id.btnCadastrar);
-        btnFoto= (ImageButton) findViewById(R.id.btnFoto);
-        mensagem = (TextView) findViewById(R.id.mensagem);
-        listar = (Button) findViewById(R.id.buttonListar);
-
+        btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
+        btnFoto = (ImageButton) findViewById(R.id.btnFoto);
+        buttonListar = (Button) findViewById(R.id.buttonListar);
 
 
         btnFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity( new Intent(MainActivity2.this, Foto.class) );
+                startActivity(new Intent(MainActivity2.this, Foto.class));
             }
         });
 
-        listar.setOnClickListener(new View.OnClickListener() {
+        buttonListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity( new Intent(MainActivity2.this, ListView.class) );
+                startActivity(new Intent(MainActivity2.this, List.class));
             }
         });
+
+
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-                try {
-
-                    class Produto {
-
-                        private String nome;
-                        private Double quantidade;
-                        private String data;
-                        private Double preco;
-
-                        public Produto() {
-
-                        }
-
-                        public String getNome() {
-                            return nome;
-                        }
-
-                        public void setNome(String nome) {
-                            this.nome = nome;
-                        }
-
-                        public Double getQuantidade() {
-                            return quantidade;
-                        }
-
-                        public void setQuantidade(Double quantidade) {
-                            this.quantidade = quantidade;
-                        }
-
-                        public String getData() {
-                            return data;
-                        }
-
-                        public void setData(String data) {
-                            this.data = data;
-                        }
-
-
-                        public Double getPreco() {
-                            return preco;
-                        }
-
-                        public void setPreco(Double preco) {
-                            this.preco = preco;
-
-                        }
-                    }
-
+                // Receber os dados dos campos de texto
                     String nome = editNome.getText().toString();
                     String quantidade = editQuantidade.getText().toString();
                     double x = Double.parseDouble(quantidade);
@@ -114,30 +75,58 @@ public class MainActivity2 extends AppCompatActivity {
                     String preco = editPreco.getText().toString();
                     double y = Double.parseDouble(preco);
 
-                    //quantidade = Double.parseDouble(quantidade);
-                    //preco = Double.parseDouble(preco);
+                // Cria um objeto de pessoa
+                Produto p = new Produto();
+                p.setNome(nome);
+                p.setQuantidade(x);
+                p.setData(data);
+                p.setPreco(y);
 
-                    Produto p = new Produto();
-                    p.setNome(nome);
-                    p.setQuantidade(x);
-                    p.setData(data);
-                    p.setPreco(y);
-                    //p.save();
+                // Salva no banco de dados
+                p.save();
 
-                   /* if (total >= 60) {
-                        mensagem.setText("com.example.aluno.myapplication2.Produto cadastrado");
-                    } else {
-                        mensagem.setText("O produto não foi cadastrado, tente novamente");
-                    }
-                    */
 
-                } catch (Exception E){
-
-                    Toast.makeText(MainActivity2.this, "Houve um problema. Tente novamente!", Toast.LENGTH_SHORT).show();
-
-                }
             }
         });
 
+        /*buttonListar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Lista todas as pessoas
+                List<List> listaDeProduto = Produto.listAll(List.class);
+
+                // Cria uma String para concatenar o nome das pessoas
+                String lista = "";
+
+                // Faz um foreach nessa lista de pessoas
+                for (Produto p: listaDeProdutos ) {
+
+                    lista = lista + p.getNome() + "\n";
+
+                }
+
+                // Coloca a lista de pessoas no TextView
+                produto.setText(lista);
+
+            }
+        });
+
+        buttonListar.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0){
+                    Intent intent = new Intent(lista.this, Produto.class);
+                    intent.putExtra("Produto", nome.get(position).getNome());
+                    startActivity(intent);
+                }
+
+            }
+        });*/
+
+
     }
+
+
+
 }
