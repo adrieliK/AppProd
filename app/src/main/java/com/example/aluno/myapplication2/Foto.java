@@ -36,7 +36,7 @@ public class Foto extends AppCompatActivity {
             public void onClick(View v) {
 
 //                if pra pegar do campo e clicar no botão para salvar, se nulo volta, se erro volta
-                startActivity(new Intent(Foto.this, List.class));
+                startActivity(new Intent(Foto.this, Lista.class));
             }
         });
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

@@ -9,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        android:name="com.orm.SugarApp">
+
+        <meta-data android:name="DATABASE" android:value="produtos.db" />
+        <meta-data android:name="VERSION" android:value="1" />
+        <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data android:name="com.example.myapplication2" android:value="com.example" />
         <activity android:name=".MainActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".List" />
+        <activity android:name=".Lista" />
         <activity android:name=".Foto"></activity>
     </application>
 

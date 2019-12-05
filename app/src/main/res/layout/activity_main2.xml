@@ -29,12 +29,13 @@
         android:layout_height="43dp"
         android:layout_marginBottom="28dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="51dp"
         android:text="Cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPreco"
-        android:layout_marginRight="24dp" />
+        app:layout_constraintStart_toEndOf="@+id/btnFoto"
+        app:layout_constraintTop_toBottomOf="@+id/editPreco" />
 
     <EditText
         android:id="@+id/editQuantidade"
@@ -76,34 +77,32 @@
         android:id="@+id/editPreco"
         android:layout_width="298dp"
         android:layout_height="56dp"
+        android:layout_marginBottom="51dp"
         android:layout_marginEnd="72dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="45dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/btnCadastrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDTVal"
-        android:layout_marginRight="72dp"
-        android:layout_marginLeft="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editDTVal" />
 
     <ImageButton
         android:id="@+id/btnFoto"
         android:layout_width="49dp"
-        android:layout_height="47dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCadastrar"
         app:layout_constraintStart_toEndOf="@+id/buttonListar"
         app:layout_constraintTop_toBottomOf="@+id/editPreco"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_menu_camera"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="21dp" />
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <Button
         android:id="@+id/buttonListar"
@@ -117,27 +116,38 @@
         app:layout_constraintEnd_toStartOf="@+id/btnFoto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPreco"
-        app:layout_constraintVertical_bias="1.0"
-        android:layout_marginLeft="14dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textNome"
         android:layout_width="253dp"
         android:layout_height="29dp"
+        android:layout_marginBottom="11dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Nome:"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/editNome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textQuantidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="278dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="10dp"
         android:text="Quantidade:"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="112dp"
+        app:layout_constraintBottom_toTopOf="@+id/editQuantidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNome"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -161,10 +171,16 @@
         android:id="@+id/textPreco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="13dp"
         android:text="Preço:"
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="302dp"
+        app:layout_constraintBottom_toTopOf="@+id/editPreco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDTVal"
         tools:ignore="MissingConstraints" />
 
 
